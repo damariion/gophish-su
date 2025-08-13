@@ -22,7 +22,7 @@ TEMPLATES = {
         "- In totaal hebben er {clicked} medewerkers ({clicked->%}%) op de link in de phishing e-mail geklikt.\n"
         "- Tot slot zijn er {submitted} inloggegevens ingevuld ({submitted->%}%).\n"
         "\n"
-        "{review}"
+        "Mochten er nog vragen of opmerkingen zijn over de huidige resultaten dan hoor ik het graag."
     ),
 
     "end": (
