@@ -64,7 +64,7 @@
     </header>
 
     <div class="content"><!-- First Featurette -->
-        <div class="about"><img class="herkenningspunten" height="30%" src="" alt="Clues"
+        <div class="about"><img class="herkenningspunten" height="30%" src="" alt="clue"
                 style="width: 39%; height: 30%; margin-right: 3%; margin-top: 100px; margin-bottom: 100px;"
                 width="39%" />
             <div class="container">
@@ -248,46 +248,6 @@
         type="text/javascript"></script>
     <script src="https://awareness.lbvd.nl/public/campaign/335/awareness/120/10/flowplayer7/flowplayer.min.js"
         type="text/javascript"></script>
-    <script>
-        $(function () {
-            var started = false;
-            var played = 0;
-            var videoLength = 0;
-            var finished = false;
-
-            flowplayer()
-                .on("finish", function (e, api) {
-                    console.log("finished");
-                    lucyDispatchEvent("video-finish");
-                    finished = true;
-                })
-                .on("progress", function (e, api, time) {
-                    played = time;
-
-                    if (!started) {
-                        console.log("started");
-                        lucyDispatchEvent("video-start");
-                    }
-
-                    started = true;
-                })
-                .on("ready", function (e, api, video) {
-                    console.log("video length", video.duration);
-                    videoLength = video.duration;
-                });
-
-            window.onbeforeunload = function (e) {
-                if (started && videoLength > 0 && !finished) {
-                    var playedPercent = Math.floor(Math.ceil((100 * played) / videoLength) / 10) * 10;
-                    console.log("played percent", playedPercent);
-                    lucyDispatchEvent("video-" + playedPercent);
-                    var dialogText = "Are you sure to close the video?";
-                    e.returnValue = dialogText;
-                    return dialogText;
-                }
-            };
-        });
-    </script>
 </body>
 
 </html>
