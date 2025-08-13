@@ -49,7 +49,7 @@ class Program:
         template = self.api.get(f"campaigns/{args.map['id']}")["template"]
         summary  = self.api.get(f"campaigns/{args.map['id']}/summary") 
         message  = open(sep.join([env["root"], "assets", 
-            "mails", args.map["variant"] + '.txt'])).read()
+            "mails", args.map["variant"] + '.txt']), 'r').read()
         
         for key, value in self.assemble(template, summary).items():
             message = message.replace(key, str(value))
