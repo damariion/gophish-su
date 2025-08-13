@@ -1,6 +1,9 @@
 from shared.entry import __handle_entry__, Args
 from shared.api   import API
-from pandas       import DataFrame
+from datetime     import datetime
+
+# for fully featured query (@pd)
+import pandas as pd
 
 class Program:
 
@@ -9,13 +12,16 @@ class Program:
         self.api   = API()
         self.cache = \
             {
-                "id"        : [],
-                "name"      : [],
-                "sender"    : [],
-                "sent"      : [],
-                "opened"    : [],
-                "clicked"   : [],
-                "submitted" : [],
+                "id"           : [],
+                "date"         : [],
+                "name"         : [],
+                "sent"         : [],
+                "opened"       : [],
+                "opened->%"    : [],
+                "clicked"      : [],
+                "clicked->%"   : [],
+                "submitted"    : [],
+                "submitted->%" : [],
             }
     
     def __ratio(self, a: int, b: int) -> float:
@@ -30,25 +36,35 @@ class Program:
                 f"campaigns/{campaign['id']}/summary")["stats"]
             
             mapping = {
-                "id"        : campaign["id"],
-                "name"      : campaign["name"],
-                "sender"    : campaign["smtp"]["from_address"],
-                "sent"      : summary["sent"],
-                "opened"    : f"{summary["opened"]} "
-                f"({self.__ratio(summary["opened"], summary["sent"])}%)",
-                "clicked"   : f"{summary["clicked"]} "
-                f"({self.__ratio(summary["clicked"], summary["sent"])}%)",
-                "submitted" : f"{summary["submitted_data"]} "
-                f"({self.__ratio(summary["submitted_data"], summary["sent"])}%)"
+                
+                # meta
+                "id"           : campaign["id"],
+                "date"         : datetime.fromisoformat(
+                                    campaign["launch_date"]),
+                "name"         : campaign["name"],
+                
+                # stats
+                "sent"         : summary["sent"],
+                "opened"       : summary["opened"],
+                "clicked"      : summary["clicked"],
+                "submitted"    : summary["submitted_data"],
+
+                # ratios
+                "opened->%"    : self.__ratio(
+                    summary["opened"], summary["sent"]),
+                "clicked->%"   : self.__ratio(
+                    summary["clicked"], summary["sent"]),
+                "submitted->%" : self.__ratio(
+                    summary["submitted_data"], summary["sent"])
             }
 
             for key, value in mapping.items():
                 self.cache[key].append(value)
 
-        data  = DataFrame(self.cache).set_index("id")
+        data  = pd.DataFrame(self.cache).set_index("id")
         query = args.map["query"]
         
-        print(data if query == '*' else data.query(query))
+        print(data if query == '*' else data.query(query, engine="python"))
 
 __handle_entry__(
     {__name__: Program}, 
