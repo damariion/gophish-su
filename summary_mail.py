@@ -45,7 +45,7 @@ class Program:
 
     def __ratio(self, a: int, b: int) -> float: 
         
-        return f"{a / b:.1f}" if b else 0
+        return f"{a / b * 100:.1f}" if b else 0
 
     def assemble(self, template: dict, summary: dict) -> dict:
         
