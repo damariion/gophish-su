@@ -13,7 +13,7 @@ class Args:
         for flag in flags:
             
             parser.add_argument(
-                
+
                 f"-{flag[0]}",
                 f"--{flag}",
                 
