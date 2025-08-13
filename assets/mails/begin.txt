@@ -1,0 +1,10 @@
+De PhishLink {variant}-simulatie van {month} zal zoals gepland {date} van start gaan. Hierbij de details:
+
+Om 09:00 uur wordt er om de 4 seconden een e-mail gestuurd. Dat betekent dat rond {last} uur de laatste e-mail 
+verzonden moet zijn. In totaal zijn het namelijk {total} e-mails.
+
+- Morgen zal ik een update geven over hoeveel personen er geklikt hebben na de eerste werkdag;
+- Het onderwerp van de mail is '{subject}' en de afzender is '{sender}';
+- De simulatie bevat een inlogpagina.
+
+Ik hoop jullie hiermee voldoende geïnformeerd te hebben en als er nog vragen zijn dan hoor ik het uiteraard graag.

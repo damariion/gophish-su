@@ -1,0 +1,7 @@
+Zojuist heb ik de phishing campagne stopgezet, verdere clicks op de phishing link zullen niet meer geregistreerd worden. De eindstand van de simulatie is als volgt:
+
+- Er zijn in totaal {sent} e-mails succesvol verzonden;
+- In totaal hebben {clicked} medewerkers ({clicked->%}%) op de link in de phishing e-mail geklikt;
+- Van de klikkende medewerkers hebben {submitted} medewerkers ({clicksubbed->%}%) inloggegevens ingevuld . Dit is {submitted->%}% van het totaal.
+
+De herkenningspunten heb ik verder bijgevoegd in de bijlagen.
