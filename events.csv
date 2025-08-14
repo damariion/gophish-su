@@ -1,4 +1,0 @@
-campaign_id,email,time,message,details
-2,,2025-08-03T16:26:19.3696998Z,Campaign Created,
-2,da.abendanon@gmail.com,2025-08-03T16:26:19.8799641Z,Email Sent,
-2,da.abendanon@gmail.com,2025-08-04T10:26:54.8110345Z,Clicked Link,"{""payload"":{""rid"":[""EyFDCne""]},""browser"":{""address"":""127.0.0.1"",""user-agent"":""Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36""}}"
