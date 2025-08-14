@@ -10,19 +10,22 @@ class Program:
     def __init__(self):
         
         self.api   = API()
-        self.cache = \
-            {
-                "id"           : [],
-                "date"         : [],
-                "name"         : [],
-                "sent"         : [],
-                "opened"       : [],
-                "opened->%"    : [],
-                "clicked"      : [],
-                "clicked->%"   : [],
-                "submitted"    : [],
-                "submitted->%" : [],
-            }
+        self.cache = {
+            key: [] for key in 
+            (
+                "id", 
+                "date", 
+                "name", 
+                "sent", 
+                "opened", 
+                "clicked", 
+                "submitted", 
+                "opened->%", 
+                "clicked->%", 
+                "submitted->%"
+             )
+        }
+
     
     def __ratio(self, a: int, b: int) -> float:
 
