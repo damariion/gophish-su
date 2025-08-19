@@ -7,5 +7,5 @@ echo
 echo :: CONFIGURATION ::
 
 # - GoPhish API
-echo -n "- Gophish API key:"; read
+/bin/echo -n "- Gophish API key: "; read
 echo $REPLY > ../shared/.key
