@@ -1,6 +1,5 @@
 from shared.entry import __handle_entry__, Args
 from shared.api   import API
-from datetime     import datetime
 
 # for fully featured query (@pd)
 import pandas as pd
@@ -9,12 +8,14 @@ class Program:
 
     def __init__(self):
         
+        # configuration
+        pd.set_option('display.max_rows', None)
+
         self.api   = API()
         self.cache = {
             key: [] for key in 
             (
                 "id", 
-                "date", 
                 "name", 
                 "sent", 
                 "opened", 
@@ -42,8 +43,6 @@ class Program:
                 
                 # meta
                 "id"           : campaign["id"],
-                "date"         : datetime.fromisoformat(
-                                    campaign["launch_date"]),
                 "name"         : campaign["name"],
                 
                 # stats
