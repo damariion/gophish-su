@@ -14,15 +14,8 @@ class Program:
             
             page = page.read()
             
-            for holder in ("name", "phone", "email"):
+            for holder in ("name", "phone", "email", "logo", "clue"):
                 page = page.replace(f"{{{{{holder}}}}}", args.map[holder])
-
-        with open(args.map["logo"], 'rb') as logo,\
-             open(args.map["clue"], 'rb') as clue:
- 
-                ...
-                # page = page.replace(r"{{logo}}", b64encode(logo.read()).decode())
-                # page = page.replace(r"{{clue}}", b64encode(clue.read()).decode())
 
         page = page.replace(r"{{logox}}", args.map["logo"].split('.')[-1])
         page = page.replace(r"{{cluex}}", args.map["clue"].split('.')[-1])
