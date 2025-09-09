@@ -297,11 +297,8 @@
   <script>
     (() => {
       const params = new URLSearchParams(location.search);
-      if (!params.has("data")) return;
-
-      const data = JSON.parse(atob(params.get("data")));
-      document.getElementById("user").innerText = data["user"] || "Onbeschikbaar";
-      document.getElementById("pass").innerText = data["pass"] || "Onbeschikbaar";
+      document.getElementById("user").innerText = params.get("user") || "Onbeschikbaar";
+      document.getElementById("pass").innerText = params.get("pass") || "Onbeschikbaar";
     })()    
   </script>
 
